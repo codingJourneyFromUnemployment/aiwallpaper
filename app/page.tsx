@@ -1,9 +1,13 @@
-import Image from "next/image";
+import Header from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
+import Wallpapers from "@/components/wallpapers/Wallpapers";
 
 export default function Home() {
   return (
     <div>
-      Hello World!
+      <Header />
+      <Wallpapers />
+      <Footer />
     </div>
   );
 }
