@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import axios from "@/utils/axiosInterceptor";
+import axios from "axios";
 // import { setProxyAgent } from "@/utils/prox-agent";
 
 var colors = require("colors");
@@ -11,8 +11,8 @@ export async function POST(req: Request) {
 
   const requestBody = {
     prompt: `A beautiful wallpaper with the description: ${desription}`,
-    model: "dall-e-3",
-    size: "1792x1024",
+    model: "dall-e-2",
+    size: "1024x1024",
     n: 1,
     quality: "hd",
     response_format: "url",
@@ -26,8 +26,8 @@ export async function POST(req: Request) {
   // if (proxy && port) {
   //   setProxyAgent(proxy, port);
   //   console.log(`Proxy set to ${proxy}:${port}`.green);
-    const myIP = await fetch("https://api.ipify.org?format=text");
-    console.log(`myIP: ${await myIP.text()}`.red);
+  //   const myIP = await fetch("https://api.ipify.org?format=text");
+  //   console.log(`myIP: ${await myIP.text()}`.red);
   // }
 
   const apiUrl = process.env["OPENAI_API_URI"];
