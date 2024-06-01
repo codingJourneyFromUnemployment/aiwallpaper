@@ -10,4 +10,9 @@ Content-Type: application/json
   "description": "a scenic mountain view"
 }
 
+###get-wallpaper-list:
+GET {{baseUri}}/get-wallpaper-list
+Content-Type: application/json
+
+
 
