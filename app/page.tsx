@@ -1,13 +1,15 @@
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
-import Wallpapers from "@/components/wallpapers/Wallpapers";
+import Hero from "@/components/hero/Hero";
+import WallpaperList from "@/components/wallpapers/Wallpaperlist";
 
 export default function Home() {
   return (
-    <div>
+    <section className="w-full flex flex-col items-center justify-center">
       <Header />
-      <Wallpapers />
+      <Hero />
+      <WallpaperList />
       <Footer />
-    </div>
+    </section>
   );
 }
