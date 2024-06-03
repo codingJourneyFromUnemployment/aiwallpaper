@@ -2,7 +2,9 @@ const NavBar = () => {
   return (
     <div className="navbar bg-base-100 flex my-3 mx-3 items-center w-full justify-between text-xl md:mx-6 md:text-2xl xl:mx-10 xl:text-3xl">
       <div className="">
-        <a className="btn btn-ghost text-primary">PixiAI</a>
+        <a className="btn btn-ghost gradient-text">
+          PixiAI
+        </a>
       </div>
       <div className="">
         <button className="btn btn-square btn-ghost">
