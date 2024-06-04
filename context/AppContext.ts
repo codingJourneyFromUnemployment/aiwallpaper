@@ -1,38 +1,27 @@
-import { createContext, useReducer } from "react";
-import { Wallpaper } from "@/types/wallpaper";
-import { State, Action, AppContextProps } from "@/types/context";
-import App from "next/app";
+import { createContext, Dispatch, useReducer, ReactNode } from "react";
+import { State } from "@/types/context";
+import { initialState, reducer } from "./reducer";
 
-const initialState : State = {
-  description: "",
-  submitting: false,
-  wallpaper: null,
-};
+// Create a context with the initial state and the reducer(placeholder)
+const AppContext = createContext<{
+  state: State;
+  dispatch: Dispatch<any>;
+}>({
+  state: initialState,
+  dispatch: () => null,
+});
 
-const reducer = (state: State, action: Action) => {
-  switch (action.type) {
-    case "SET_DESCRIPTION":
-      return { ...state, description: action.payload };
-    case "SET_SUBMITTING":
-      return { ...state, submitting: action.payload };
-    case "SET_WALLPAPER":
-      return { ...state, wallpaper: action.payload };
-    default:
-      return state;
-  }
-}
-
-const AppContext = createContext<AppContextProps | null >(null)
-
-const AppContextProvider = ({ children }: any) => {
+// create a provider for the context
+const AppProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
   return (
     <AppContext.Provider value={{ state, dispatch }}>
       {children}
     </AppContext.Provider>
-  )
-}
+  );
+};
 
-export { AppContext, AppContextProvider };
+export { AppContext, AppProvider };
+
+
 
